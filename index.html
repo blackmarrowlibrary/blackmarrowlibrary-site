@@ -15,7 +15,62 @@
       display: flex;
       flex-direction: column;
     }
+.apache-index {
+  background: #f7f7f7;
+  color: #000;
+  font-family: "Times New Roman", Times, serif;
+  padding: 18px;
+  margin: -48px -22px -80px;
+  min-height: calc(100vh - 120px);
+  overflow-x: auto;
+}
 
+.apache-index h1 {
+  color: #000;
+  border: none;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 34px;
+  letter-spacing: 0;
+  text-transform: none;
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+
+.apache-index table {
+  border-collapse: collapse;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  min-width: 720px;
+}
+
+.apache-index th,
+.apache-index td {
+  padding: 3px 10px 3px 0;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.apache-index th {
+  border-bottom: 1px solid #999;
+  font-weight: normal;
+}
+
+.apache-index a {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.apache-index a:visited {
+  color: #551a8b;
+}
+
+.apache-index address {
+  margin-top: 18px;
+  border-top: 1px solid #999;
+  padding-top: 8px;
+  font-size: 14px;
+  color: #000;
+}
     a {
       color: inherit;
       text-decoration: none;
@@ -279,82 +334,52 @@
         </div>
       `,
 
-      files: `
-<h1>Directory Listing</h1>
+     files: `
+<div class="apache-index">
+  <h1>Index of /files/</h1>
 
-<div class="file-note">
-Index of /files/<br>
-Last modified: 22-Apr-2025 13:17<br>
-Catalog restoration incomplete
+  <table>
+    <tr>
+      <th></th>
+      <th><a href="#">Name</a></th>
+      <th><a href="#">Last modified</a></th>
+      <th><a href="#">Size</a></th>
+      <th><a href="#">Description</a></th>
+    </tr>
+
+    <tr>
+      <td>↩</td>
+      <td><a href="#archive">Parent Directory</a></td>
+      <td>-</td>
+      <td>-</td>
+      <td></td>
+    </tr>
+
+    <tr><td>▣</td><td><a href="files/COL-2019-09_SELECTED_HOLDINGS.pdf" target="_blank">COL-2019-09_SELECTED_HOLDINGS.pdf</a></td><td>22-Sep-2019 14:03</td><td>1.2M</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/04_2025_hosting_migration.pdf" target="_blank">04_2025_hosting_migration.pdf</a></td><td>22-Apr-2025 09:41</td><td>842K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/2017FY Operating Budget.jpg" target="_blank">2017FY Operating Budget.jpg</a></td><td>15-Jan-2018 16:22</td><td>611K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="images/Visitor Form.jpg" target="_blank">VIS-2018-01_VISITOR_FORM.jpg</a></td><td>18-Jun-2018 11:08</td><td>734K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="images/visitor badge.jpg" target="_blank">VIS-2018-02_TEMPORARY_BADGE.jpg</a></td><td>18-Jun-2018 11:14</td><td>690K</td><td></td></tr>
+
+    <tr><td>▣</td><td><a href="files/legacy/ACC-1998-031_SCAN-01.pdf" target="_blank">ACC-1998-031_SCAN-01.pdf</a></td><td>11-Feb-2004 03:18</td><td>418K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/legacy/CATALOG_LEGACY_INDEX.htm" target="_blank">CATALOG_LEGACY_INDEX.htm</a></td><td>04-Aug-2001 22:09</td><td>63K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/legacy/VISITOR_LOG_2004-2008.txt" target="_blank">VISITOR_LOG_2004-2008.txt</a></td><td>17-Nov-2008 10:44</td><td>21K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/periodicals/PERIODICALS_BOX_03.pdf" target="_blank">PERIODICALS_BOX_03.pdf</a></td><td>29-May-2009 01:12</td><td>7.4M</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/staff/STAFF_NOTICE_2011-08.pdf" target="_blank">STAFF_NOTICE_2011-08.pdf</a></td><td>08-Aug-2011 08:22</td><td>184K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/accessions/ACCESSIONS_1998_PARTIAL.xls" target="_blank">ACCESSIONS_1998_PARTIAL.xls</a></td><td>03-Mar-1999 17:31</td><td>112K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/audio/AUDIO_REEL_INDEX_A.txt" target="_blank">AUDIO_REEL_INDEX_A.txt</a></td><td>12-Dec-2010 19:02</td><td>14K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/catalog/MICROFILM_TRANSFER_NOTES.doc" target="_blank">MICROFILM_TRANSFER_NOTES.doc</a></td><td>30-Jun-2014 12:56</td><td>87K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/internal/READING_ROOM_INCIDENTS_2010.pdf" target="_blank">READING_ROOM_INCIDENTS_2010.pdf</a></td><td>19-Oct-2010 06:40</td><td>329K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/internal/DONOR_CORRESPONDENCE_REDACTED.pdf" target="_blank">DONOR_CORRESPONDENCE_REDACTED.pdf</a></td><td>02-Feb-2012 23:15</td><td>901K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/tmp/TEMP_DIRECTORY_BACKUP_OLD.htm" target="_blank">TEMP_DIRECTORY_BACKUP_OLD.htm</a></td><td>14-Apr-2025 04:03</td><td>44K</td><td></td></tr>
+    <tr><td>▣</td><td><a href="files/tmp/SCAN_QUEUE_UNSORTED.zip" target="_blank">SCAN_QUEUE_UNSORTED.zip</a></td><td>01-Jan-2016 00:00</td><td>18.7M</td><td></td></tr>
+  </table>
+
+  <address>
+    Apache/2.2.0 (Win32) Server at blackmarrowlibrary.org Port 80
+  </address>
 </div>
-
-<div class="file-list">
-<pre>
-Directory of /files/
-
-Name                                Last Modified       Size
-----------------------------------------------------------------
-
-<a href="files/COL-2019-09_SELECTED_HOLDINGS.pdf" target="_blank">COL-2019-09_SELECTED_HOLDINGS.pdf</a>
-22-Sep-2019 14:03       1.2M
-
-<a href="files/04_2025_hosting_migration.pdf" target="_blank">04_2025_hosting_migration.pdf</a>
-22-Apr-2025 09:41       842K
-
-<a href="files/2017FY Operating Budget.jpg" target="_blank">2017FY Operating Budget.jpg</a>
-15-Jan-2018 16:22       611K
-
-<a href="images/Visitor Form.jpg" target="_blank">VIS-2018-01_VISITOR_FORM.jpg</a>
-18-Jun-2018 11:08       734K
-
-<a href="images/visitor badge.jpg" target="_blank">VIS-2018-02_TEMPORARY_BADGE.jpg</a>
-18-Jun-2018 11:14       690K
-
-<a href="files/legacy/ACC-1998-031_SCAN-01.pdf" target="_blank">ACC-1998-031_SCAN-01.pdf</a>
-11-Feb-2004 03:18       418K
-
-<a href="files/legacy/CATALOG_LEGACY_INDEX.htm" target="_blank">CATALOG_LEGACY_INDEX.htm</a>
-04-Aug-2001 22:09       63K
-
-<a href="files/legacy/VISITOR_LOG_2004-2008.txt" target="_blank">VISITOR_LOG_2004-2008.txt</a>
-17-Nov-2008 10:44       21K
-
-<a href="files/periodicals/PERIODICALS_BOX_03.pdf" target="_blank">PERIODICALS_BOX_03.pdf</a>
-29-May-2009 01:12       7.4M
-
-<a href="files/staff/STAFF_NOTICE_2011-08.pdf" target="_blank">STAFF_NOTICE_2011-08.pdf</a>
-08-Aug-2011 08:22       184K
-
-<a href="files/accessions/ACCESSIONS_1998_PARTIAL.xls" target="_blank">ACCESSIONS_1998_PARTIAL.xls</a>
-03-Mar-1999 17:31       112K
-
-<a href="files/audio/AUDIO_REEL_INDEX_A.txt" target="_blank">AUDIO_REEL_INDEX_A.txt</a>
-12-Dec-2010 19:02       14K
-
-<a href="files/catalog/MICROFILM_TRANSFER_NOTES.doc" target="_blank">MICROFILM_TRANSFER_NOTES.doc</a>
-30-Jun-2014 12:56       87K
-
-<a href="files/internal/READING_ROOM_INCIDENTS_2010.pdf" target="_blank">READING_ROOM_INCIDENTS_2010.pdf</a>
-19-Oct-2010 06:40       329K
-
-<a href="files/internal/DONOR_CORRESPONDENCE_REDACTED.pdf" target="_blank">DONOR_CORRESPONDENCE_REDACTED.pdf</a>
-02-Feb-2012 23:15       901K
-
-<a href="files/tmp/TEMP_DIRECTORY_BACKUP_OLD.htm" target="_blank">TEMP_DIRECTORY_BACKUP_OLD.htm</a>
-14-Apr-2025 04:03       44K
-
-<a href="files/tmp/SCAN_QUEUE_UNSORTED.zip" target="_blank">SCAN_QUEUE_UNSORTED.zip</a>
-01-Jan-2016 00:00       18.7M
-
-----------------------------------------------------------------
-
-17 file(s)
-
-directory listing generated from recovered catalog index
-
-</pre>
-</div>
-`,
+`,`,
 </pre>
         </div>
       `,
