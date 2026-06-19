@@ -21,8 +21,6 @@
       text-decoration: none;
     }
 
-    /* ENTRY PAGE */
-
     #entry {
       min-height: 100vh;
       background: radial-gradient(circle at center, #222 0%, #050505 70%);
@@ -49,12 +47,6 @@
       cursor: pointer;
     }
 
-    .enter-link:hover {
-      opacity: 0.7;
-    }
-
-    /* MAIN SITE */
-
     #site {
       display: none;
       min-height: 100vh;
@@ -71,21 +63,7 @@
       gap: 6px;
       padding: 12px;
       border-bottom: 2px solid #8b816f;
-
-      background:
-        linear-gradient(115deg,
-          rgba(255,255,255,.75) 0%,
-          rgba(210,206,196,.45) 18%,
-          rgba(120,116,108,.25) 19%,
-          rgba(245,242,232,.65) 32%,
-          rgba(95,91,86,.18) 33%,
-          rgba(232,228,216,.7) 50%,
-          rgba(120,116,108,.25) 51%,
-          rgba(250,247,238,.8) 72%,
-          rgba(95,90,82,.2) 73%,
-          rgba(220,216,204,.65) 100%
-        ),
-        #d8d2c3;
+      background: #d8d2c3;
     }
 
     .menu a {
@@ -94,17 +72,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #9b761f;
-
-      text-shadow:
-        1px 1px 0 #fff3b0,
-        -1px -1px 0 #3a2a08;
-
-      border-left: 1px solid rgba(0,0,0,0.18);
-      border-right: 1px solid rgba(255,255,255,0.45);
-    }
-
-    .menu a:hover {
-      background: rgba(0,0,0,0.08);
+      text-shadow: 1px 1px 0 #fff3b0, -1px -1px 0 #3a2a08;
     }
 
     main {
@@ -169,6 +137,52 @@
       background: rgba(0,0,0,0.18);
     }
 
+    .file-list {
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(214,196,138,0.25);
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    .file-list a {
+      color: #c9c1ad;
+      text-decoration: underline;
+    }
+
+    .file-list a.dead {
+      color: #4f4a40;
+      text-decoration: none;
+    }
+
+    .file-note {
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      color: #8b816f;
+      margin-bottom: 18px;
+    }
+
+    #sound-toggle {
+      position: fixed;
+      right: 10px;
+      bottom: 34px;
+      z-index: 999;
+      font-family: "Courier New", monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 3px 6px;
+      color: #777;
+      background: #050505;
+      border: 1px solid #222;
+      opacity: 0.55;
+    }
+
+    #sound-toggle:hover {
+      opacity: 0.95;
+      color: #ccc;
+    }
+
     footer {
       position: fixed;
       bottom: 0;
@@ -187,7 +201,6 @@
 
 <body>
 
-  <!-- ENTRY SCREEN -->
   <section id="entry">
     <a href="#home" onclick="enterSite()">
       <img src="logo.png" alt="Blackmarrow Library" class="entry-logo">
@@ -195,17 +208,23 @@
     <a href="#home" class="enter-link" onclick="enterSite()">Enter</a>
   </section>
 
-  <!-- MAIN SITE -->
   <section id="site">
     <nav class="menu">
       <a href="#home">Home</a>
       <a href="#archive">Archive</a>
+      <a href="#files">Files</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="#staff">Staff</a>
     </nav>
 
     <main id="content"></main>
+
+    <audio id="archive-audio" loop preload="auto">
+      <source src="audio/archive_01.m4a" type="audio/mp4">
+    </audio>
+
+    <button id="sound-toggle" onclick="toggleSound()">sound: off</button>
 
     <footer>
       PUBLIC ACCESS LOG: <span id="counter">027</span>
@@ -214,6 +233,10 @@
 
   <script>
     const content = document.getElementById("content");
+    const audio = document.getElementById("archive-audio");
+    const soundToggle = document.getElementById("sound-toggle");
+
+    audio.volume = 0.08;
 
     const pages = {
       home: `
@@ -230,6 +253,38 @@
 
       archive: `
         <div class="sterile">Index Unavailable</div>
+      `,
+
+      files: `
+        <h1>Files</h1>
+
+        <div class="file-note">
+          directory index restored from partial migration backup<br>
+          several referenced files remain unavailable
+        </div>
+
+        <div class="file-list">
+<pre>
+/files/
+
+<a href="files/COL-2019-09_SELECTED_HOLDINGS.pdf" target="_blank">COL-2019-09_SELECTED_HOLDINGS.pdf</a>
+<a href="files/04_2025_hosting_migration.pdf" target="_blank">04_2025_hosting_migration.pdf</a>
+<a href="files/2017FY Operating Budget.jpg" target="_blank">2017FY Operating Budget.jpg</a>
+
+<a class="dead" href="files/legacy/ACC-1998-031_SCAN-01.pdf">ACC-1998-031_SCAN-01.pdf</a>
+<a class="dead" href="files/legacy/CATALOG_LEGACY_INDEX.htm">CATALOG_LEGACY_INDEX.htm</a>
+<a class="dead" href="files/legacy/VISITOR_LOG_2004-2008.txt">VISITOR_LOG_2004-2008.txt</a>
+<a class="dead" href="files/periodicals/PERIODICALS_BOX_03.pdf">PERIODICALS_BOX_03.pdf</a>
+<a class="dead" href="files/staff/STAFF_NOTICE_2011-08.pdf">STAFF_NOTICE_2011-08.pdf</a>
+<a class="dead" href="files/accessions/ACCESSIONS_1998_PARTIAL.xls">ACCESSIONS_1998_PARTIAL.xls</a>
+<a class="dead" href="files/audio/AUDIO_REEL_INDEX_A.txt">AUDIO_REEL_INDEX_A.txt</a>
+<a class="dead" href="files/catalog/MICROFILM_TRANSFER_NOTES.doc">MICROFILM_TRANSFER_NOTES.doc</a>
+<a class="dead" href="files/internal/READING_ROOM_INCIDENTS_2010.pdf">READING_ROOM_INCIDENTS_2010.pdf</a>
+<a class="dead" href="files/internal/DONOR_CORRESPONDENCE_REDACTED.pdf">DONOR_CORRESPONDENCE_REDACTED.pdf</a>
+<a class="dead" href="files/tmp/TEMP_DIRECTORY_BACKUP_OLD.htm">TEMP_DIRECTORY_BACKUP_OLD.htm</a>
+<a class="dead" href="files/tmp/SCAN_QUEUE_UNSORTED.zip">SCAN_QUEUE_UNSORTED.zip</a>
+</pre>
+        </div>
       `,
 
       about: `
@@ -283,6 +338,7 @@
       document.getElementById("entry").style.display = "none";
       document.getElementById("site").style.display = "flex";
       loadPage();
+      startSound();
     }
 
     function loadPage() {
@@ -294,6 +350,34 @@
       if (location.hash) enterSite();
       loadPage();
     });
+
+    function startSound() {
+      const soundPref = localStorage.getItem("bml_sound");
+
+      if (soundPref === "off") {
+        soundToggle.textContent = "sound: off";
+        return;
+      }
+
+      localStorage.setItem("bml_sound", "on");
+      audio.play().then(() => {
+        soundToggle.textContent = "sound: on";
+      }).catch(() => {
+        soundToggle.textContent = "sound: off";
+      });
+    }
+
+    function toggleSound() {
+      if (audio.paused) {
+        localStorage.setItem("bml_sound", "on");
+        audio.play();
+        soundToggle.textContent = "sound: on";
+      } else {
+        localStorage.setItem("bml_sound", "off");
+        audio.pause();
+        soundToggle.textContent = "sound: off";
+      }
+    }
 
     function restricted() {
       alert("Restricted");
@@ -317,7 +401,6 @@
         "mailto:blackmarrowlibrary@gmail.com?subject=" + subject + "&body=" + body;
     }
 
-    /* PUBLIC ACCESS LOG */
     function updateCounter() {
       const min = 11;
       const max = 1500;
@@ -326,7 +409,7 @@
       let value = parseInt(localStorage.getItem("accessLogValue")) || 27;
       let lastUpdate = parseInt(localStorage.getItem("accessLogLastUpdate")) || 0;
 
-      const updateEvery = 1000 * 60 * 60 * 6; // roughly every 6 hours
+      const updateEvery = 1000 * 60 * 60 * 6;
 
       if (now - lastUpdate > updateEvery) {
         let change = Math.floor(Math.random() * 45) + 3;
