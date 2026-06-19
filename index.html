@@ -139,28 +139,33 @@
 
     .file-list {
       font-family: "Courier New", monospace;
-      font-size: 14px;
-      background: rgba(0,0,0,0.22);
-      border: 1px solid rgba(214,196,138,0.25);
-      padding: 18px;
+      font-size: 13px;
+      background: #0d0d0d;
+      border: 1px solid rgba(214,196,138,0.15);
+      padding: 22px;
       overflow-x: auto;
     }
 
+    .file-list pre {
+      margin: 0;
+      line-height: 1.7;
+      color: #bcb6a8;
+    }
+
     .file-list a {
-      color: #c9c1ad;
+      color: #7ea4d6;
       text-decoration: underline;
     }
 
-    .file-list a.dead {
-      color: #4f4a40;
-      text-decoration: none;
+    .file-list a:hover {
+      color: #d6dfff;
     }
 
     .file-note {
       font-family: "Courier New", monospace;
-      font-size: 13px;
-      color: #8b816f;
-      margin-bottom: 18px;
+      font-size: 12px;
+      color: #777;
+      margin-bottom: 20px;
     }
 
     #sound-toggle {
@@ -212,7 +217,6 @@
     <nav class="menu">
       <a href="#home">Home</a>
       <a href="#archive">Archive</a>
-      <a href="#files">Files</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="#staff">Staff</a>
@@ -236,7 +240,7 @@
     const audio = document.getElementById("archive-audio");
     const soundToggle = document.getElementById("sound-toggle");
 
-    audio.volume = 0.08;
+    audio.volume = 0.35;
 
     const pages = {
       home: `
@@ -253,36 +257,71 @@
 
       archive: `
         <div class="sterile">Index Unavailable</div>
+
+        <div style="
+          margin-top:80px;
+          text-align:center;
+          font-family:'Courier New', monospace;
+          font-size:12px;
+          color:#666;
+          letter-spacing:0.08em;
+        ">
+          partial directory restoration detected<br>
+          migration recovery incomplete<br><br>
+
+          <a href="#files"
+             style="
+             color:#777;
+             text-decoration:underline;
+             ">
+             view restored index
+          </a>
+        </div>
       `,
 
       files: `
-        <h1>Files</h1>
+        <h1>Directory Listing</h1>
 
         <div class="file-note">
-          directory index restored from partial migration backup<br>
-          several referenced files remain unavailable
+          Index of /files/<br>
+          Last modified: 22-Apr-2025 13:17<br>
+          Migration status: incomplete
         </div>
 
         <div class="file-list">
 <pre>
-/files/
+Directory of /files/
+
+Name                                Last Modified       Size
+----------------------------------------------------------------
 
 <a href="files/COL-2019-09_SELECTED_HOLDINGS.pdf" target="_blank">COL-2019-09_SELECTED_HOLDINGS.pdf</a>
-<a href="files/04_2025_hosting_migration.pdf" target="_blank">04_2025_hosting_migration.pdf</a>
-<a href="files/2017FY Operating Budget.jpg" target="_blank">2017FY Operating Budget.jpg</a>
+22-Sep-2019 14:03       1.2M
 
-<a class="dead" href="files/legacy/ACC-1998-031_SCAN-01.pdf">ACC-1998-031_SCAN-01.pdf</a>
-<a class="dead" href="files/legacy/CATALOG_LEGACY_INDEX.htm">CATALOG_LEGACY_INDEX.htm</a>
-<a class="dead" href="files/legacy/VISITOR_LOG_2004-2008.txt">VISITOR_LOG_2004-2008.txt</a>
-<a class="dead" href="files/periodicals/PERIODICALS_BOX_03.pdf">PERIODICALS_BOX_03.pdf</a>
-<a class="dead" href="files/staff/STAFF_NOTICE_2011-08.pdf">STAFF_NOTICE_2011-08.pdf</a>
-<a class="dead" href="files/accessions/ACCESSIONS_1998_PARTIAL.xls">ACCESSIONS_1998_PARTIAL.xls</a>
-<a class="dead" href="files/audio/AUDIO_REEL_INDEX_A.txt">AUDIO_REEL_INDEX_A.txt</a>
-<a class="dead" href="files/catalog/MICROFILM_TRANSFER_NOTES.doc">MICROFILM_TRANSFER_NOTES.doc</a>
-<a class="dead" href="files/internal/READING_ROOM_INCIDENTS_2010.pdf">READING_ROOM_INCIDENTS_2010.pdf</a>
-<a class="dead" href="files/internal/DONOR_CORRESPONDENCE_REDACTED.pdf">DONOR_CORRESPONDENCE_REDACTED.pdf</a>
-<a class="dead" href="files/tmp/TEMP_DIRECTORY_BACKUP_OLD.htm">TEMP_DIRECTORY_BACKUP_OLD.htm</a>
-<a class="dead" href="files/tmp/SCAN_QUEUE_UNSORTED.zip">SCAN_QUEUE_UNSORTED.zip</a>
+<a href="files/04_2025_hosting_migration.pdf" target="_blank">04_2025_hosting_migration.pdf</a>
+22-Apr-2025 09:41       842K
+
+<a href="files/2017FY Operating Budget.jpg" target="_blank">2017FY Operating Budget.jpg</a>
+15-Jan-2018 16:22       611K
+
+ACC-1998-031_SCAN-01.pdf
+CATALOG_LEGACY_INDEX.htm
+VISITOR_LOG_2004-2008.txt
+PERIODICALS_BOX_03.pdf
+STAFF_NOTICE_2011-08.pdf
+ACCESSIONS_1998_PARTIAL.xls
+AUDIO_REEL_INDEX_A.txt
+MICROFILM_TRANSFER_NOTES.doc
+READING_ROOM_INCIDENTS_2010.pdf
+DONOR_CORRESPONDENCE_REDACTED.pdf
+TEMP_DIRECTORY_BACKUP_OLD.htm
+SCAN_QUEUE_UNSORTED.zip
+
+----------------------------------------------------------------
+
+3 file(s) restored
+12 file(s) unavailable
+
 </pre>
         </div>
       `,
